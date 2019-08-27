@@ -119,7 +119,7 @@ mensaje = obtenerMensaje()
 clave = obtenerClave()
 traduc = obtenerMensajeTraducido(modo, mensaje, clave)
 
-print('Tu texto traducido es:')
+print('Tu texto traducido con clave cesar es:')
 print(traduc)
 
 
@@ -131,5 +131,6 @@ listaInvertida = ReverseLista(lista)
 
 #se crea un string de la lista invertida
 fraseInvertida = ConvertirAFrase(listaInvertida)
+print("fraseInvertida + clave Cesar es: ")
 print(fraseInvertida)
 print("#################################")
