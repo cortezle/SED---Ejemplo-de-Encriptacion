@@ -72,31 +72,30 @@ def obtenerDesplazamiento():
 	return k
 
 
-#Flujo programa
+while True:
+        #Flujo programa
 
-#Primero se pide el modo (encriptar || desencriptar)
-modo = obtenerModo()
+        #Primero se pide el modo (encriptar || desencriptar)
+        modo = obtenerModo()
 
-#Se pide la frase 
-frase = obtenerFrase()
+        #Se pide la frase 
+        frase = obtenerFrase()
 
-#valor de desplazamiento
-k = obtenerDesplazamiento()
+        #valor de desplazamiento
+        k = obtenerDesplazamiento()
 
-#se convierte en lista para poder trabajarla
-lista = ConvertirLista(frase)
+        #se convierte en lista para poder trabajarla
+        lista = ConvertirLista(frase)
 
-#se invierte la lista
-listaInvertida = ReverseLista(lista)
+        #se invierte la lista
+        listaInvertida = ReverseLista(lista)
 
-#se crea un string de la lista invertida
-fraseInvertida = ConvertirAFrase(listaInvertida)
+        #se crea un string de la lista invertida
+        fraseInvertida = ConvertirAFrase(listaInvertida)
 
-#se encripta con Cesar la fraseInvertida
-traduc = obtenerMensajeTraducido(modo, frase, k)
+        #se encripta con Cesar la fraseInvertida
+        traduc = obtenerMensajeTraducido(modo, frase, k)
 
-#se imprime la respuesta del sistema
-print("#######################################")
-print("Resultado: ",traduc)
-
-
+        #se imprime la respuesta del sistema
+        print("#######################################")
+        print("Resultado: ",traduc)
