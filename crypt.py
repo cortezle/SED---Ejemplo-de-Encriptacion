@@ -1,4 +1,4 @@
-"""def ConvertirLista(frase):
+def ConvertirLista(frase):
 	return list(frase)
 
 def ReverseLista(lst): 
@@ -20,73 +20,6 @@ def CifrarCesar(frase,k):
 		else:
 			cifrad+=c
 	return cifrad
-
-
-def DesCifrarCesar(frase,k)
-#frase = "hola esta es mi contraseña"
-#fraseInvertida = "añesartnoc im se atse aloh"
-
-#Se pide la frase 
-frase = input("Ingrese : ")
-
-#se convierte en lista para poder trabajarla
-lista = ConvertirLista(frase)
-
-#se invierte la lista
-listaInvertida = ReverseLista(lista)
-
-#se crea un string de la lista invertida
-fraseInvertida = ConvertirAFrase(listaInvertida)
-print(fraseInvertida)
-print("#################################")
-
-#valor de desplazamiento
-k = int( input( "Valor desplazamiento: "))
-
-cifrado = CifrarCesar(fraseInvertida,k)
-
-print("eso es: ",cifrado)"""
-
-
-
-#Aqui comienza lo que agregue, deje lo otro porque puede servir luego
-
-TAM_MAX_CLAVE = 26
-
-#Lucho
-
-def ConvertirLista(frase):
-	return list(frase)
-
-def ReverseLista(lst): 
-    lst.reverse() 
-    return lst
-
-def ConvertirAFrase(lst):
-	return "".join(lst)
-
-#Lucho
-
-def obtenerModo():
-    while True:
-        print('¿Deseas encriptar o desencriptar un mensaje?')
-        modo = input().lower()
-        if modo in 'encriptar e desencriptar d'.split():
-            return modo
-        else:
-            print('Ingresa "encriptar" o "e" o "desencriptar" o "d"')
-
-def obtenerMensaje():
-    print('Ingresa tu mensaje:')
-    return input()
-
-def obtenerClave():
-    clave = 0
-    while True:
-        print('Ingresa el número de clave (1-%s)' % (TAM_MAX_CLAVE))
-        clave = int(input())
-        if (clave >= 1 and clave <= TAM_MAX_CLAVE):
-            return clave
 
 def obtenerMensajeTraducido(modo, mensaje, clave):
     if modo[0] == 'd':
@@ -114,23 +47,56 @@ def obtenerMensajeTraducido(modo, mensaje, clave):
             traduccion += simbolo
     return traduccion 
 
-modo = obtenerModo()   
-mensaje = obtenerMensaje()
-clave = obtenerClave()
-traduc = obtenerMensajeTraducido(modo, mensaje, clave)
 
-print('Tu texto traducido con clave cesar es:')
-print(traduc)
+def obtenerModo():
+    while True:
+        print('¿Deseas encriptar o desencriptar un mensaje?')
+        modo = input().lower()
+        if modo in 'encriptar e desencriptar d'.split():
+            return modo
+        else:
+            print('Ingresa "encriptar" o "e" o "desencriptar" o "d"')
 
+def obtenerFrase():
+	return input("Ingrese frase: ")
+
+def obtenerDesplazamiento():
+	i=False
+	k=0
+	while(not i):
+		try:
+			k=int(input("Valor desplazamiento: "))
+			i=True
+		except ValueError:
+			print('Error, introduce un numero entero')
+	return k
+
+
+#Flujo programa
+
+#Primero se pide el modo (encriptar || desencriptar)
+modo = obtenerModo()
+
+#Se pide la frase 
+frase = obtenerFrase()
+
+#valor de desplazamiento
+k = obtenerDesplazamiento()
 
 #se convierte en lista para poder trabajarla
-lista = ConvertirLista(traduc)
+lista = ConvertirLista(frase)
 
 #se invierte la lista
 listaInvertida = ReverseLista(lista)
 
 #se crea un string de la lista invertida
 fraseInvertida = ConvertirAFrase(listaInvertida)
-print("fraseInvertida + clave Cesar es: ")
-print(fraseInvertida)
-print("#################################")
+
+#se encripta con Cesar la fraseInvertida
+traduc = obtenerMensajeTraducido(modo, frase, k)
+
+#se imprime la respuesta del sistema
+print("#######################################")
+print("Resultado: ",traduc)
+
+
