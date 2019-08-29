@@ -1,25 +1,17 @@
+#esta funcion recibe un string, y lo devuelve en una lista separado por caracter
 def ConvertirLista(frase):
 	return list(frase)
 
+
+#esta funcion recibe una lista y el metodo reverse la invierte, la retornamos
 def ReverseLista(lst): 
     lst.reverse() 
     return lst
 
+
+#recibe una lista y la vulve a unir como una string
 def ConvertirAFrase(lst):
 	return "".join(lst)
-
-def CifrarCesar(frase,k):
-	if fraseInvertida==fraseInvertida.upper():
-		abc="ABCDEFGHIJKLMNÑOPQRSTUVXYZ"
-	else:
-		abc="abcdefghijklmnñopqrstuvxwyz"
-	cifrad=""
-	for c in frase:
-		if c in abc:
-			cifrad += abc[ (abc.index(c)+k)%(len(abc))]
-		else:
-			cifrad+=c
-	return cifrad
 
 def obtenerMensajeTraducido(modo, mensaje, clave):
     if modo[0] == 'd':
@@ -47,22 +39,26 @@ def obtenerMensajeTraducido(modo, mensaje, clave):
             traduccion += simbolo
     return traduccion 
 
-
+#siempre esta pidiendo si se desea encriptar o desencriptar
 def obtenerModo():
     while True:
         print('¿Deseas encriptar o desencriptar un mensaje?')
         modo = input().lower()
+	#aca cuando encuentre algunas de las siguientes que lo separe, practicamente es una validacion si se ingreso e o d
         if modo in 'encriptar e desencriptar d'.split():
             return modo 
         else:
             print('Ingresa "encriptar" o "e" o "desencriptar" o "d"')
 
+#funcion que devuelve la frase ingresada
 def obtenerFrase():
 	return input("Ingrese frase: ")
 
+#funcion que pide el valor de desplazamiento del cifrado cesar
 def obtenerDesplazamiento():
 	i=False
 	k=0
+	#validacion que ingrese un entero
 	while(not i):
 		try:
 			k=int(input("Valor desplazamiento: "))
@@ -72,6 +68,8 @@ def obtenerDesplazamiento():
 	return k
 
 
+
+#MAIN
 while True:
         #Flujo programa
 
