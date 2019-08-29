@@ -13,15 +13,21 @@ def ReverseLista(lst):
 def ConvertirAFrase(lst):
 	return "".join(lst)
 
+#recibimos nuestro modo, mensaje y clave
 def obtenerMensajeTraducido(modo, mensaje, clave):
+    #validamos si quiere desencriptar 
     if modo[0] == 'd':
+        #para desencriptar un mensaje se usa la versión negativa de la clave
         clave= -clave
     traduccion = ''
     for simbolo in mensaje:
+        # isalpha() devolverá True si la cadena es una letra mayúscula o minúscula entre A y Z
+        # Si la cadena contiene algún caracter no alfabético, entonces isalpha() devolverá False
         if simbolo.isalpha():
             num = ord(simbolo)
             num += clave
-
+            #isupper() devuelve True si la cadena sobre la cual es llamado contiene al menos una letra mayúscula y ninguna minúscula.
+            #islower() devuelve True si la cadena sobre la cual es llamado contiene al menos una letra minúscula y ninguna mayúscula.
             if simbolo.isupper():
                 if num > ord('Z'):
                     num -= 26
