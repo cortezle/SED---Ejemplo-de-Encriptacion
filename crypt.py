@@ -99,7 +99,7 @@ while True:
         #se imprime la respuesta del sistema
         print("#######################################")
         print("Resultado: ",traduc)
-        print("Si deseas salir digita salir si deseas continuar presiona cualquier tecla")
+        print("Si deseas terminar digita salir si deseas continuar presiona cualquier tecla")
         salir = input()
         if salir == "salir":
             break
